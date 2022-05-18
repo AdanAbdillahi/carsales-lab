@@ -17,7 +17,7 @@ public class Car {
     @Column
     private String type;
     @Column
-    private String price;
+    private int price;
 
     //pinnedforlater - coloum should be here
     // Many 'Cars' have 1 dealership in which you purchase the car
@@ -27,13 +27,13 @@ public class Car {
     // think about in each class what is the relationship between the classes to determine the relationship
     @ManyToOne
     @JoinColumn(name = "car_id", nullable = false)
-    private Car car;
+    private Dealership dealership;
 
-    public Car(String name, String type, String price, Car car) {
+    public Car(String name, String type, int price, Dealership dealership) {
         this.name = name;
         this.type = type;
         this.price = price;
-        this.car = car;
+        this.dealership = dealership;
     }
 // default constructor
     public Car() {}
@@ -62,20 +62,20 @@ public class Car {
         this.type = type;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Car getCar() {
-        return car;
+    public Dealership getDealership() {
+        return dealership;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setDealership(Dealership dealership) {
+        this.dealership = dealership;
     }
 }
 
