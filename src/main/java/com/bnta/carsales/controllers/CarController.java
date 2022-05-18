@@ -40,4 +40,11 @@ public class CarController {
 
     }
 
+    //DELETE
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Long> deleteCar (@PathVariable("id") Long id) {
+        carRepository.deleteById(id);
+        return new ResponseEntity<>(id, HttpStatus.OK);
+    }
+
 }
