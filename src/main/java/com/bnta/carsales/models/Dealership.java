@@ -1,6 +1,8 @@
 package com.bnta.carsales.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,8 @@ public class Dealership {
     private String name;
     // one dealership has many cars for sale
     //mappedBy tell us what it should be looking for
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "dealership")
+    @JsonIgnoreProperties({"dealership"})
     private List<Car> cars;
 
     public Dealership(String name) {
