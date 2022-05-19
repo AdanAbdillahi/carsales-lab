@@ -20,14 +20,19 @@ public class CarController {
 
 //INDEX
     // returns all the pets
-    @GetMapping
-        public ResponseEntity<List<Car>>getAllCars(){
-        return new ResponseEntity<>(carRepository.findAll(), HttpStatus.OK);
-    }
+//    @GetMapping
+//       public ResponseEntity<List<Car>>getAllCars(){
+//        return new ResponseEntity<>(carRepository.findAll(), HttpStatus.OK);
+//    }
 
+  @GetMapping // localhost:8080/cars?type=petrol
+    public ResponseEntity<List<Car>> getAllCarsOfType(
+            @RequestParam(name="type") String type) {
+        return new ResponseEntity<>(carRepository.findCarByType(type), HttpStatus.OK);
+    }
     //SHOW - we want to show one specific pet
 
-    @GetMapping(value = "/{id}" ) // localhost:8008/cars/
+    @GetMapping( "/{id}" ) // localhost:8008/cars/
     public ResponseEntity<Optional<Car>> getCar(@PathVariable Long id){
         return new ResponseEntity<>(carRepository.findById(id),HttpStatus.OK);
     }

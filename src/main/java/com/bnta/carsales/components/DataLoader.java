@@ -21,23 +21,32 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception{
 
-        Dealership dealership1 = new Dealership("BMW");
+        Dealership dealership1 = new Dealership("bmw");
         dealershipRepository.save(dealership1);
 
-        Car car1 = new Car("M140i", "Petrol", 20000, dealership1);
+        Car car1 = new Car("m140i", "petrol", 20000, dealership1);
         carRepository.save(car1);
 
-        Car car2 = new Car("X5", "Diesel", 30000, dealership1);
+        Car car2 = new Car("x4", "diesel", 30000, dealership1);
         carRepository.save(car2);
 
-        Dealership dealership2 = new Dealership("Volkswagen");
+        Car car3 = new Car("i8", "electric", 50000, dealership1);
+        carRepository.save(car3);
+
+
+        //--//
+
+        Dealership dealership2 = new Dealership("volkswagen");
         dealershipRepository.save(dealership2);
 
-        Car car3 = new Car("GTI", "Petrol", 10000, dealership2);
-        carRepository.save(car2);
+        Car car4 = new Car("gti", "petrol", 10000, dealership2);
+        carRepository.save(car4);
 
-        Car car4 = new Car("R", "Petrol", 35000, dealership2);
-        carRepository.save(car3);
+        Car car5 = new Car("r", "petrol", 35000, dealership2);
+        carRepository.save(car5);
+
+        Car car6 = new Car("id3", "electric", 15000, dealership2);
+        carRepository.save(car6);
 
 
 
