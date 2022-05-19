@@ -18,12 +18,17 @@ public class CarController {
     @Autowired
     CarRepository carRepository;
 
-//INDEX
+//INDEX GET/pets
     // returns all the pets
-//    @GetMapping
-//       public ResponseEntity<List<Car>>getAllCars(){
-//        return new ResponseEntity<>(carRepository.findAll(), HttpStatus.OK);
-//    }
+ @GetMapping
+      public ResponseEntity<List<Car>>getAllCarsandFilters(
+              @RequestParam(required = false, name = "type") String type
+ ){
+ if(type != null){
+     return new ResponseEntity<>(carRepository.findCarByType(type), HttpStatus.OK);
+ }
+     return new ResponseEntity<>(carRepository.findAll(), HttpStatus.OK);
+ }
 
   @GetMapping // localhost:8080/cars?type=petrol
     public ResponseEntity<List<Car>> getAllCarsOfType(

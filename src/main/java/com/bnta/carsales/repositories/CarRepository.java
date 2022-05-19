@@ -11,5 +11,7 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     // return all cars with type Petrol
     //
     List<Car> findCarByType (String type);
+
+    List<Car>findCarByPrice (Integer type);
 }
 
